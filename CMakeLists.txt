@@ -18,9 +18,19 @@ add_custom_command(
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
 )
 
+if (MSVC)
+    add_compile_options(
+        $<$<CONFIG:>:</MT>
+        $<$<CONFIG:Debug>:</MT>
+        $<$<CONFIG:Release>:</MT>
+        $<$<CONFIG:RelWithDebInfo>:</MT>
+    )
+endif ()
+
+message(STATUS "CMAKE_CXX_FLAGS: " ${CMAKE_CXX_FLAGS})
+message(STATUS "CMAKE_CXX_FLAGS_DEBUG: " ${CMAKE_CXX_FLAGS_DEBUG})
 message(STATUS "CMAKE_CXX_FLAGS_RELEASE: " ${CMAKE_CXX_FLAGS_RELEASE})
-string(REGEX REPLACE "/MD" "/MT" CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
-message(STATUS "CMAKE_CXX_FLAGS_RELEASE: " ${CMAKE_CXX_FLAGS_RELEASE})
+message(STATUS "CMAKE_CXX_FLAGS_RELWITHDEBINFO: " ${CMAKE_CXX_FLAGS_RELWITHDEBINFO})
 
 add_executable(Main Main.cc ${PROTO_SOURCES})
 include_directories(${Protobuf_INCLUDE_DIRS})
