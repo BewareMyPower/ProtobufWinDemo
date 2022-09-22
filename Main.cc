@@ -1,6 +1,9 @@
 #include <iostream>
+#include "PulsarApi.pb.h"
 
 int main() {
-    std::cout << "protobuf demo" << std::endl;
+    pulsar::proto::MessageIdData id;
+    id.set_ledgerid(100L);
+    std::cout << "ledger id: " << id.ledgerid() << std::endl;
     return 0;
 }
