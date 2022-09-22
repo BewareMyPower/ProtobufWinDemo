@@ -1,0 +1,8 @@
+{
+  "name": "protobuf-demo",
+  "version": "0.0.1",
+  "description": "protobuf demo",
+  "dependencies": [
+    "protobuf"
+  ]
+}

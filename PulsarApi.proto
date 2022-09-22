@@ -1,0 +1,8 @@
+syntax = "proto2";
+
+package pulsar.proto;
+option optimize_for = LITE_RUNTIME;
+
+message MessageIdData {
+    required uint64 ledgerId = 1;
+}

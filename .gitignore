@@ -1,0 +1,12 @@
+# Protobuf
+*.pb.*
+
+# Visual Studio
+.vs/
+out/
+
+# Vcpkg
+vcpkg_installed/
+
+# Vim
+*.sw*
