@@ -18,6 +18,10 @@ add_custom_command(
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
 )
 
+message(STATUS "CMAKE_CXX_FLAGS_RELEASE: " ${CMAKE_CXX_FLAGS_RELEASE})
+string(REGEX REPLACE "/MD" "/MT" CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
+message(STATUS "CMAKE_CXX_FLAGS_RELEASE: " ${CMAKE_CXX_FLAGS_RELEASE})
+
 add_executable(Main Main.cc ${PROTO_SOURCES})
 include_directories(${Protobuf_INCLUDE_DIRS})
 target_link_libraries(Main PRIVATE ${Protobuf_LIBRARIES})
